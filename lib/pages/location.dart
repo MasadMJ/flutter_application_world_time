@@ -14,7 +14,7 @@ class _LocationPageState extends State<LocationPage> {
       countryName: "Egypt - Cairo",
       flag: "egypt",
     ),
-    CardCountry(countryName: "Moroco - Cairo", flag: "morocco"),
+    CardCountry(countryName: "Moroco - Tunis ", flag: "morocco"),
     CardCountry(countryName: "Saudi Arabia - Riyadh", flag: "sa"),
     CardCountry(countryName: "Canada - Toronto", flag: "canada"),
     CardCountry(countryName: "Algeria - Algiers", flag: "algeria"),
