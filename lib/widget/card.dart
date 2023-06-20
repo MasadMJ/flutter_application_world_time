@@ -3,20 +3,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_multi_page/resources/api.dart';
 
-class CardWidget extends StatefulWidget {
-  String name;
+class CardCountry extends StatefulWidget {
+  String countryName;
+  String flag;
 
-  CardWidget({super.key, required this.name});
+
+  CardCountry({super.key, required this.countryName,required this.flag});
 
   @override
-  State<CardWidget> createState() => _CardWidgetState();
+  State<CardCountry> createState() => _CardCountryState();
 }
 
-class _CardWidgetState extends State<CardWidget> {
+class _CardCountryState extends State<CardCountry> {
   bool dayTime = false;
 
   getInfo() async {
-    ApiReq newReq = ApiReq(countryName: widget.name);
+    ApiReq newReq = ApiReq(flag: widget.flag);
     await newReq.getIsraelInfo();
     Navigator.pop(context, {
       "time": newReq.myTime,
@@ -33,10 +35,9 @@ class _CardWidgetState extends State<CardWidget> {
         onTap: () {
           getInfo();
         },
-        title: Text(widget.name.replaceFirst(widget.name.substring(0, 1),
-            widget.name.substring(0, 1).toUpperCase())),
+        title: Text(widget.countryName),
         leading: CircleAvatar(
-          backgroundImage: AssetImage("lib/assets/${widget.name}.png"),
+          backgroundImage: AssetImage("lib/assets/${widget.flag}.png"),
           radius: 20,
           foregroundColor: Colors.amber,
         ),

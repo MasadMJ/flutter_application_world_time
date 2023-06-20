@@ -7,13 +7,13 @@ import 'package:intl/intl.dart';
 class ApiReq {
   bool isDay = false;
   late String myTime;
-  late String countryName;
+  late String flag;
   late String timezone;
 
-  ApiReq({required this.countryName});
+  ApiReq({required this.flag});
 
   getIsraelInfo() async {
-    switch (countryName) {
+    switch (flag) {
       case 'egypt':
         timezone = 'Africa/Cairo';
         break;
@@ -50,15 +50,14 @@ class ApiReq {
       int difTime =
           int.parse(receivedData['utc_offset'].toString().substring(0, 3));
       myDate = myDate.add(Duration(hours: difTime));
-      myTime = DateFormat('hh : mm a').format(myDate);
+      myTime = DateFormat('hh:mm a').format(myDate);
       if (myDate.hour > 5 && myDate.hour < 18) {
         isDay = true;
       }
     } catch (e) {
       isDay = false;
       myTime = e.toString();
-      countryName = "";
-      timezone = "";
+      flag = "";
     }
   }
 }

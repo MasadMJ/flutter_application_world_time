@@ -22,7 +22,7 @@ class _LoadingPageState extends State<LoadingPage> {
   String myTime = "";
   bool dayTime = false;
   getInfo() async {
-    ApiReq newReq = ApiReq(countryName: "egypt");
+    ApiReq newReq = ApiReq(flag: "egypt");
     await newReq.getIsraelInfo();
     Navigator.pushReplacementNamed(context, "/home", arguments: {
       "time": newReq.myTime,

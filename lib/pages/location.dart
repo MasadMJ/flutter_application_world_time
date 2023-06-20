@@ -10,13 +10,16 @@ class LocationPage extends StatefulWidget {
 
 class _LocationPageState extends State<LocationPage> {
   List countryLIST = [
-    "egypt",
-    "morocco",
-    "sa",
-    "tunisia",
-    "algeria",
-    "australia",
-    "canada"
+    CardCountry(
+      countryName: "Egypt - Cairo",
+      flag: "egypt",
+    ),
+    CardCountry(countryName: "Moroco - Cairo", flag: "morocco"),
+    CardCountry(countryName: "Saudi Arabia - Riyadh", flag: "sa"),
+    CardCountry(countryName: "Canada - Toronto", flag: "canada"),
+    CardCountry(countryName: "Algeria - Algiers", flag: "algeria"),
+    CardCountry(countryName: "Australia - Sydney", flag: "australia"),
+    CardCountry(countryName: "Tunisia - Tunis", flag: "tunisia")
   ];
 
   @override
@@ -33,16 +36,15 @@ class _LocationPageState extends State<LocationPage> {
       backgroundColor: const Color.fromARGB(245, 199, 192, 192),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              for (String iteam in countryLIST)
-                CardWidget(
-                  name: iteam,
-                ),
-            ],
-          ),
-        ),
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              height: double.infinity,
+              child: ListView.builder(
+                  itemCount: countryLIST.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return countryLIST[index];
+                  }),
+            )),
       ),
     );
   }

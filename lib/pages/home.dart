@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,13 +10,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Map myData = {};
-  Map myData2 = {};
 
   @override
   Widget build(BuildContext context) {
     myData.isEmpty
         ? myData = ModalRoute.of(context)?.settings.arguments as Map
-        : myData = myData2;
+        : myData;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               ElevatedButton.icon(
                 onPressed: () async {
-                  myData2 =
+                  myData =
                       await Navigator.pushNamed(context, '/location') as Map;
                   setState(() {
                     //  myData2={"time":myData1['time'],"timezone":myData1['timezone'],"dayTime":myData1['dayTime']};
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                       style: const TextStyle(fontSize: 40, color: Colors.white),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     Text(
                       myData['timezone'],
