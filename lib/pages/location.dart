@@ -26,6 +26,7 @@ class _LocationPageState extends State<LocationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+       //automaticallyImplyLeading: false,
         title: const Text(
           "Choose Location",
           style: TextStyle(fontSize: 15),

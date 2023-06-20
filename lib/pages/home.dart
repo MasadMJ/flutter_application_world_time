@@ -9,13 +9,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Map myData = {};
 
   @override
   Widget build(BuildContext context) {
-    myData.isEmpty
-        ? myData = ModalRoute.of(context)?.settings.arguments as Map
-        : myData;
+    Map myData = ModalRoute.of(context)?.settings.arguments as Map;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -37,8 +34,10 @@ class _HomePageState extends State<HomePage> {
             children: [
               ElevatedButton.icon(
                 onPressed: () async {
-                  myData =
-                      await Navigator.pushNamed(context, '/location') as Map;
+                  //myData =
+                  //    await Navigator.pushNamed(context, '/location') as Map;
+                  Navigator.pushReplacementNamed(context, '/location');
+                  
                   setState(() {
                     //  myData2={"time":myData1['time'],"timezone":myData1['timezone'],"dayTime":myData1['dayTime']};
                   });

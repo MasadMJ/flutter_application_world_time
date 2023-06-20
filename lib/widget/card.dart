@@ -20,7 +20,7 @@ class _CardCountryState extends State<CardCountry> {
   getInfo() async {
     ApiReq newReq = ApiReq(flag: widget.flag);
     await newReq.getIsraelInfo();
-    Navigator.pop(context, {
+    Navigator.popAndPushNamed(context, '/home' ,arguments: {
       "time": newReq.myTime,
       "timezone": newReq.timezone,
       "dayTime": newReq.isDay
@@ -39,7 +39,7 @@ class _CardCountryState extends State<CardCountry> {
         leading: CircleAvatar(
           backgroundImage: AssetImage("lib/assets/${widget.flag}.png"),
           radius: 20,
-          foregroundColor: Colors.amber,
+         // foregroundColor: Colors.amber,
         ),
       ),
     );
